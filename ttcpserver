@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Copyright (c) 2012 by Delphix.
+# All rights reserved.
+#
+
+#
+# This script is used to invoke the ttcpserver.
+#
+
+TOP_DIR=`pwd`/jars
+TTCP_JAR=$TOP_DIR/ttcp-1.0.0.jar
+TTCP_CLASS=com.delphix.appliance.server.ttcp.impl.TtcpServer
+
+JARS=$TOP_DIR/commons-cli-1.2.jar
+JARS="$JARS:$TOP_DIR/netty-3.5.10.Final.jar"
+
+exec java -cp $TTCP_JAR:$JARS $TTCP_CLASS $@
